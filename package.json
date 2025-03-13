@@ -1,7 +1,9 @@
 {
-  "name": "personal-pomodoro-app",
+  "name": "personal-pomodoro",
   "packageManager": "yarn@4.6.0",
+  "version": "1.0.0",
   "main": "main.js",
+  "description": "A simple pomodoro app to boost your productivity",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder"
@@ -15,6 +17,7 @@
       "buildResources": "build"
     },
     "files": [
+      "dist/**/*",
       "!node_modules/.cache",
       "!scripts",
       "main.js",
