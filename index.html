@@ -3,10 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>Pomodoro Timer</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+
 </head>
 <body>
   <h1>Pomodoro Timer</h1>
   <p id="timer">20:00</p>
+
+  <label for="timeSelect">Select time:</label>
+  <select id="timeSelect">
+    <option value="15">15 min</option>
+    <option value="20" selected>20 min</option>
+    <option value="25">25 min</option>
+    <option value="30">30 min</option>
+    <option value="45">45 min</option>
+  </select>
+
   <button id="startBtn">Start</button>
   <button id="pauseBtn">Pause</button>
   <button id="resetBtn">Reset</button>
