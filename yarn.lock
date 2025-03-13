@@ -2585,9 +2585,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"personal-pomodoro-app@workspace:.":
+"personal-pomodoro@workspace:.":
   version: 0.0.0-use.local
-  resolution: "personal-pomodoro-app@workspace:."
+  resolution: "personal-pomodoro@workspace:."
   dependencies:
     electron: "npm:34.0.2"
     electron-builder: "npm:25.1.8"

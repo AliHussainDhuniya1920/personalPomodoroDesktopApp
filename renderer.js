@@ -1,5 +1,5 @@
-// let timeLeft = 20 * 60; // Default 20 minutes
-let timeLeft = 1 * 60; // Default 1 minute
+let timeLeft = 20 * 60; // Default 20 minutes
+// let timeLeft = 1 * 60; // Default 1 minute
 const timeSelect = document.getElementById('timeSelect');
 const timerDisplay = document.getElementById('timer');
 const startBtn = document.getElementById('startBtn');

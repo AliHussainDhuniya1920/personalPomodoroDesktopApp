@@ -19,24 +19,30 @@ app.on('ready', () => {
   });
 
   mainWindow.loadFile('index.html');
-
+  
   tray = new Tray(path.join(__dirname, 'assets', 'icon.png'));
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Show App', click: () => mainWindow.show() },
     { label: 'Quit', click: () => {
-      clearInterval(timerInterval);
-      app.quit();
-    }}
+        clearInterval(timerInterval); // Stop the timer
+        if (mainWindow) {
+          mainWindow.destroy(); // Ensure window is fully destroyed
+        }
+        tray.destroy(); // Remove tray icon
+        app.quit(); // Quit the app completely
+        app.exit(0); // Force exit if needed
+      }
+    }
   ]);
-
+  
   tray.setToolTip('Pomodoro Timer');
   tray.setContextMenu(contextMenu);
-
+  
   mainWindow.on('close', (event) => {
     event.preventDefault();
     mainWindow.hide(); // Minimize to tray
   });
-
+  
   ipcMain.on('start-timer', (event, time) => {
     clearInterval(timerInterval);
     timeLeft = time * 60;
