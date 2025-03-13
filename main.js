@@ -54,6 +54,23 @@ app.on('ready', () => {
 
   ipcMain.on('pause-timer', () => {
     clearInterval(timerInterval);
+    isPaused = true;
+  });
+
+  ipcMain.on('resume-timer', (event) => {
+    if (isPaused && timeLeft > 0) {
+      isPaused = false;
+      
+      timerInterval = setInterval(() => {
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          event.reply('timer-finished');
+        } else {
+          timeLeft--;
+          event.reply('update-timer', timeLeft);
+        }
+      }, 1000);
+    }
   });
 
   ipcMain.on('reset-timer', (event, time) => {

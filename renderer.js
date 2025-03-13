@@ -31,6 +31,10 @@ document.getElementById('resetBtn').addEventListener('click', () => {
   updateTimerDisplay();
 });
 
+document.getElementById('resumeBtn').addEventListener('click', () => {
+  window.electron.ipcRenderer.send('resume-timer');
+});
+
 window.electron.ipcRenderer.on('update-timer', (event, time) => {
   timeLeft = time;
   updateTimerDisplay();
