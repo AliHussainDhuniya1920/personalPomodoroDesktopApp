@@ -1,5 +1,5 @@
 {
-  "name": "pomodoro-app-by-alihussaindhuniya",
+  "name": "personal-pomodoro-app",
   "packageManager": "yarn@4.6.0",
   "main": "main.js",
   "scripts": {

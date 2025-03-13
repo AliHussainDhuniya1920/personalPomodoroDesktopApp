@@ -49,7 +49,19 @@ window.electron.ipcRenderer.on('update-timer', (event, time) => {
 });
 
 window.electron.ipcRenderer.on('timer-finished', () => {
-  new Notification('Pomodoro Timer', { body: 'Time is up!' });
+  const audio = new Audio('papercut.mp3');
+ 
+  
+  audio.play().then(() => {
+    audio.loop = true;
+    setTimeout(() => {
+      audio.loop = false;
+      audio.pause();
+    }, 10000);
+  }).catch(() => {
+    new Notification('Pomodoro Timer', { body: 'Time is up! Take Frequent Break' });
+  });
+  new Notification('Pomodoro Timer', { body: 'Time is up! Take Frequent Break' });
   timeLeft = 0;
   updateTimerDisplay();
   startBtn.disabled = false; // Enable start button when timer finishes
