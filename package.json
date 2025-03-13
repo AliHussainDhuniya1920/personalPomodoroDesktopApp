@@ -3,10 +3,48 @@
   "packageManager": "yarn@4.6.0",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
   },
-  "dependencies": {
-    "electron": "35.0.1"
+  "build": {
+    "appId": "alihussaindhuniya.com.np",
+    "productName": "personal-pomodoro-app",
+    "copyright": "© 2025 Ali Hussain Dhuniya",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "!node_modules/.cache",
+      "!scripts",
+      "main.js",
+      "renderer.js",
+      "preload.js",
+      "index.html",
+      "assets/**",
+      "papercut.mp3"
+    ],
+    "extraMetadata": {
+      "main": "main.js"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "keywords": [
+    "pomodoro, productivity, timer"
+  ],
+  "author": "alihussaindhuniya",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "34.0.2",
+    "electron-builder": "25.1.8"
   },
   "volta": {
     "node": "22.14.0"

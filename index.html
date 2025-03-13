@@ -3,11 +3,147 @@
 <head>
   <meta charset="UTF-8">
   <title>Pomodoro Timer</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      color: #333;
+      padding-bottom: 40px; /* Space for footer */
+    }
+
+    h3 {
+      font-size: 2.3rem; /* Increased font size */
+      color: #333;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    #timer {
+      font-size: 2.7rem; /* Increased font size */
+      font-weight: bold;
+      color: #e74c3c;
+      margin: 20px 0;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      font-size: 1.2rem; /* Increased font size */
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    select {
+      font-size: 1.2rem; /* Increased font size */
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      cursor: pointer;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+
+    select:hover {
+      border-color: #3498db;
+    }
+
+    button {
+      font-size: 1.2rem; /* Increased font size */
+      padding: 12px 25px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin: 10px;
+      display: inline-flex;
+      align-items: center;
+      color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    button span {
+      margin-right: 8px;
+    }
+
+    #startBtn {
+      background-color: #27ae60; /* Dark Green */
+    }
+
+    #startBtn:hover {
+      background-color: #2ecc71; /* Lighter Green */
+    }
+
+    #pauseBtn {
+      background-color: #7f8c8d; /* Dark Grey */
+    }
+
+    #pauseBtn:hover {
+      background-color: #95a5a6; /* Lighter Grey */
+    }
+
+    #resumeBtn {
+      background-color: #9b59b6; /* Purple */
+    }
+
+    #resumeBtn:hover {
+      background-color: #8e44ad; /* Darker Purple */
+    }
+
+    #resetBtn {
+      background-color: #c0392b; /* Dark Red */
+    }
+
+    #resetBtn:hover {
+      background-color: #e74c3c; /* Lighter Red */
+    }
+
+    footer {
+      position: fixed;
+      bottom: 10px;
+      font-size: 0.8rem; /* Smaller font size */
+      color: #fff;
+      background-color: #333;
+      padding: 0.3rem;
+    }
+
+    footer a {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <h1>Pomodoro Timer</h1>
+  <h3>Pomodoro Timer</h3>
   <p id="timer">20:00</p>
 
   <label for="timeSelect">Select time:</label>
@@ -21,10 +157,16 @@
     <option value="45">45 min</option>
   </select>
 
-  <button id="startBtn">Start</button>
-  <button id="pauseBtn">Pause</button>
-  <button id="resumeBtn">Resume</button>
-  <button id="resetBtn">Reset</button>
+  <div>
+    <button id="startBtn"><span>▶️</span>Start</button>
+    <button id="pauseBtn"><span>⏸️</span>Pause</button>
+    <button id="resumeBtn"><span>⏳</span>Resume</button>
+    <button id="resetBtn"><span>🔄</span>Reset</button>
+  </div>
+
+  <footer>
+    Developed by <a href="https://alihussaindhuniya.com.np" target="_blank">AliHussainDhuniya</a>
+  </footer>
 
   <script src="renderer.js"></script>
 </body>
