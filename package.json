@@ -1,0 +1,14 @@
+{
+  "name": "pomodoro-app-by-alihussaindhuniya",
+  "packageManager": "yarn@4.6.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron": "35.0.1"
+  },
+  "volta": {
+    "node": "22.14.0"
+  }
+}
